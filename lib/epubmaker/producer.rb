@@ -193,6 +193,8 @@ module EPUBMaker
       basedir ||= current
 
       new_tmpdir = tmpdir.nil? ? Dir.mktmpdir : tmpdir
+      new_tmpdir = Dir[File.join(new_tmpdir)][0]
+
       if epubfile !~ %r{\A/}
         epubfile = "#{current}/#{epubfile}"
       end
